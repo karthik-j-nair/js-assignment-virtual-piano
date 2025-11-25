@@ -1,18 +1,3 @@
-const keys = [
-    { outerKey: "A", innerKey: "Z" },
-    { outerKey: "B", innerKey: "Y" },
-    { outerKey: "C", innerKey: "X" },
-    { outerKey: "D", innerKey: "W" },
-    { outerKey: "E", innerKey: "V" },
-    { outerKey: "F", innerKey: "U" },
-    { outerKey: "G", innerKey: "T" },
-    { outerKey: "H", innerKey: "S" },
-    { outerKey: "I", innerKey: "R" },
-    { outerKey: "J", innerKey: "Q" },
-    { outerKey: "K", innerKey: "P" },
-    { outerKey: "L", innerKey: "O" },
-    { outerKey: "M", innerKey: "N" }
-]
 
 let a1 = new Audio("./29.mp3");
 let a2 = new Audio("./30.mp3");
@@ -42,64 +27,236 @@ let b11 = new Audio("./Fs7v8.mp3");
 let b12 = new Audio("./G5.mp3");
 let b13 = new Audio("./Gb1.mp3");
 
-const sounds = {
-    KeyA: a1,
-    KeyB: a2,
-    KeyC: a3,
-    KeyD: a4,
-    KeyE: a5,
-    KeyF: a6,
-    KeyG: a7,
-    KeyH: a8,
-    KeyI: a9,
-    KeyJ: a10,
-    KeyK: a11,
-    KeyL: a12,
-    KeyM: a13,
-
-    KeyN: b1,
-    KeyO: b2,
-    KeyP: b3,
-    KeyQ: b4,
-    KeyR: b5,
-    KeyS: b6,
-    KeyT: b7,
-    KeyU: b8,
-    KeyV: b9,
-    KeyW: b10,
-    KeyX: b11,
-    KeyY: b12,
-    KeyZ: b13
-};
 
 
 
 
 
-let piano = document.querySelector(".piano-div");
 
-let sum = "";
+let keysOuter = document.querySelectorAll(".keys-outer");
+let keysInner = document.querySelectorAll(".keys-inner");
 
-keys.forEach((objs) => {
-    sum += `<div class="keys-outer" id="outer-${objs.outerKey}">
-                <div class="keys-inner" id="inner-${objs.innerKey}"><h1>${objs.innerKey}</h1></div>
-                <h1>${objs.outerKey}</h1>
-            </div>`
-});
 
-piano.innerHTML = sum;
+document.body.addEventListener("keyup", (vals) => {
 
-document.body.addEventListener("keydown", (vals) => {
-    console.log(vals.key);
-    
-    let audio = sounds[vals.code];
-    if (audio) {
-        audio.currentTime = 0;
-        audio.play();
+    // let audio = sounds[vals.code];
+    if (vals.key === "a") {
+        keysOuter[0].classList.remove("active");
+    }
+    if (vals.key === "b") {
+        keysOuter[1].classList.remove("active");
+    }
+    if (vals.key === "c") {
+        keysOuter[2].classList.remove("active");
+    }
+    if (vals.key === "d") {
+        keysOuter[3].classList.remove("active");
+    }
+    if (vals.key === "e") {
+        keysOuter[4].classList.remove("active");
+    }
+    if (vals.key === "f") {
+        keysOuter[5].classList.remove("active");
+    }
+    if (vals.key === "g") {
+        keysOuter[6].classList.remove("active");
+    }
+    if (vals.key === "h") {
+        keysOuter[7].classList.remove("active");
+    }
+    if (vals.key === "i") {
+        keysOuter[8].classList.remove("active");
+    }
+    if (vals.key === "j") {
+        keysOuter[9].classList.remove("active");
+    }
+    if (vals.key === "k") {
+        keysOuter[10].classList.remove("active");
+    }
+    if (vals.key === "l") {
+        keysOuter[11].classList.remove("active");
+    }
+    if (vals.key === "m") {
+        keysOuter[12].classList.remove("active");
+    }
+    if (vals.key === "n") {
+        keysInner[0].classList.remove("active");
+    }
+    if (vals.key === "o") {
+        keysInner[1].classList.remove("active");
+    }
+    if (vals.key === "p") {
+        keysInner[2].classList.remove("active");
+    }
+    if (vals.key === "q") {
+        keysInner[3].classList.remove("active");
+    }
+    if (vals.key === "r") {
+        keysInner[4].classList.remove("active");
+    }
+    if (vals.key === "s") {
+        keysInner[5].classList.remove("active");
+    }
+    if (vals.key === "t") {
+        keysInner[6].classList.remove("active");
+    }
+    if (vals.key === "u") {
+        keysInner[7].classList.remove("active");
+    }
+    if (vals.key === "v") {
+        keysInner[8].classList.remove("active");
+    }
+    if (vals.key === "w") {
+        keysInner[9].classList.remove("active");
+    }
+    if (vals.key === "x") {
+        keysInner[10].classList.remove("active");
+    }
+    if (vals.key === "y") {
+        keysInner[11].classList.remove("active");
+    }
+    if (vals.key === "z") {
+        keysInner[12].classList.remove("active");
     }
 
-    keys.forEach((objs) => {
-        let outer = document.querySelector(`#outer-${objs.outerKey}`);
-        outer.style.backgroundColor = "#fff";
-    });
 });
+
+
+
+document.body.addEventListener("keydown", (vals) => {
+    // console.log(vals.key);
+
+    if (vals.key === "a") {
+        a1.currentTime = 0;
+        a1.play();
+        keysOuter[0].classList.add("active");
+    }
+
+    if (vals.key === "b") {
+        a2.currentTime = 0;
+        a2.play();
+        keysOuter[1].classList.add("active");
+    }
+    if (vals.key === "c") {
+        a3.currentTime = 0;
+        a3.play();
+        keysOuter[2].classList.add("active");
+    }
+    if (vals.key === "d") {
+        a4.currentTime = 0;
+        a4.play();
+        keysOuter[3].classList.add("active");
+    }
+    if (vals.key === "e") {
+        a5.currentTime = 0;
+        a5.play();
+        keysOuter[4].classList.add("active");
+    }
+    if (vals.key === "f") {
+        a6.currentTime = 0;
+        a6.play();
+        keysOuter[5].classList.add("active");
+    }
+    if (vals.key === "g") {
+        a7.currentTime = 0;
+        a7.play();
+        keysOuter[6].classList.add("active");
+    }
+    if (vals.key === "h") {
+        a8.currentTime = 0;
+        a8.play();
+        keysOuter[7].classList.add("active");
+    }
+    if (vals.key === "i") {
+        a9.currentTime = 0;
+        a9.play();
+        keysOuter[8].classList.add("active");
+    }
+    if (vals.key === "j") {
+        a10.currentTime = 0;
+        a10.play();
+        keysOuter[9].classList.add("active");
+    }
+    if (vals.key === "k") {
+        a11.currentTime = 0;
+        a11.play();
+        keysOuter[10].classList.add("active");
+    }
+    if (vals.key === "l") {
+        a12.currentTime = 0;
+        a12.play();
+        keysOuter[11].classList.add("active");
+    }
+    if (vals.key === "m") {
+        a13.currentTime = 0;
+        a13.play();
+        keysOuter[12].classList.add("active");
+    }
+    if (vals.key === "n") {
+        b1.currentTime = 0;
+        b1.play();
+        keysInner[0].classList.add("active");
+    }
+    if (vals.key === "o") {
+        b2.currentTime = 0;
+        b2.play();
+        keysInner[1].classList.add("active");
+    }
+    if (vals.key === "p") {
+        b3.currentTime = 0;
+        b3.play();
+        keysInner[2].classList.add("active");
+    }
+    if (vals.key === "q") {
+        b4.currentTime = 0;
+        b4.play();
+        keysInner[3].classList.add("active");
+    }
+    if (vals.key === "r") {
+        b5.currentTime = 0;
+        b5.play();
+        keysInner[4].classList.add("active");
+    }
+    if (vals.key === "s") {
+        b6.currentTime = 0;
+        b6.play();
+        keysInner[5].classList.add("active");
+    }
+    if (vals.key === "t") {
+        b7.currentTime = 0;
+        b7.play();
+        keysInner[6].classList.add("active");
+    }
+    if (vals.key === "u") {
+        b8.currentTime = 0;
+        b8.play();
+        keysInner[7].classList.add("active");
+    }
+    if (vals.key === "v") {
+        b9.currentTime = 0;
+        b9.play();
+        keysInner[8].classList.add("active");
+    }
+    if (vals.key === "w") {
+        b10.currentTime = 0;
+        b10.play();
+        keysInner[9].classList.add("active");
+    }
+    if (vals.key === "x") {
+        b11.currentTime = 0;
+        b11.play();
+        keysInner[10].classList.add("active");
+    }
+    if (vals.key === "y") {
+        b12.currentTime = 0;
+        b12.play();
+        keysInner[11].classList.add("active");
+    }
+    if (vals.key === "z") {
+        b13.currentTime = 0;
+        b13.play();
+        keysInner[12].classList.add("active");
+    }
+
+});
+

@@ -51,6 +51,11 @@ main{
     padding-bottom: 1rem;
 }
 
+.active {
+    scale: 0.95;
+    transition: all ease 0.1s;
+}
+
 .keys-inner h1 {
     color: #fff;
     font-size: 2.5rem;
